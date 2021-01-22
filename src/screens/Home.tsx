@@ -6,7 +6,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import {AmmountSlider, Text} from '../components';
+import {AmmountSlider, Button, Text} from '../components';
 import {useCreditSimulator} from '../hooks/useCreditSimulator';
 import {colors} from '../theme/colors';
 
@@ -15,7 +15,7 @@ export default function () {
 
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle="dark-content" backgroundColor={colors.background.primary}/>
       <SafeAreaView style={style.safeArea}>
         <ScrollView contentContainerStyle={style.scrollView}>
           <View style={style.wrapper}>
@@ -35,10 +35,16 @@ export default function () {
               minAmount={dues.min}
               maxAmount={dues.max}
             />
+
             <View style={style.result}>
               <Text type="accentBold">CUOTA FIJA POR MES</Text>
-              <Text type="accentBig">{`$ ${result}`}</Text>
+              <Text type="accentExtraBig">{`$ ${result}`}</Text>
             </View>
+
+            <Button type="accent" textType="accentBig">
+              OBTENÉ CRÉDITO
+            </Button>
+            <Button textType="accentBold">OBTENÉ CRÉDITO</Button>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -47,14 +53,14 @@ export default function () {
 }
 
 const style = StyleSheet.create({
-  safeArea: {flex: 1},
-  scrollView: {flexGrow: 1, backgroundColor: '#084f85'},
+  safeArea: {flex: 1, backgroundColor: colors.background.primary},
+  scrollView: {flexGrow: 1, backgroundColor: colors.background.primary},
   wrapper: {
+    marginTop: 50,
     margin: 15,
     padding: 20,
     backgroundColor: colors.background.secondary,
   },
-
   result: {
     backgroundColor: colors.background.darktest,
     padding: 20,

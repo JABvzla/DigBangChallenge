@@ -6,9 +6,15 @@ import {
 } from 'react-native';
 import {colors} from '../../theme/colors';
 
-type textTypes = 'text' | 'title' | 'accent' | 'accentBold' | 'accentBig';
+export type TextTypes =
+  | 'text'
+  | 'title'
+  | 'accent'
+  | 'accentBold'
+  | 'accentBig'
+  | 'accentExtraBig';
 interface TextProps extends RNTextProps {
-  type?: textTypes;
+  type?: TextTypes;
   children: string;
 }
 
@@ -34,6 +40,11 @@ const style = StyleSheet.create({
     fontSize: 13,
   },
   accentBig: {
+    color: colors.text.accent,
+    fontWeight: 'bold',
+    fontSize: 20,
+  },
+  accentExtraBig: {
     color: colors.text.accent,
     fontWeight: 'bold',
     fontSize: 30,
