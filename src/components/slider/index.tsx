@@ -14,9 +14,9 @@ interface SliderProps {
 export function Slider(props: SliderProps) {
   return (
     <RNSlider
-      thumbTintColor={colors.text.primary}
-      minimumTrackTintColor={colors.text.primary}
-      maximumTrackTintColor={colors.text.primary}
+      thumbTintColor={colors.text.accent}
+      minimumTrackTintColor={colors.text.accent}
+      maximumTrackTintColor={colors.text.accent}
       {...props}
     />
   );

@@ -15,28 +15,43 @@ interface AmmountSliderProps {
 
 export function AmmountSlider({decorator = '', ...props}: AmmountSliderProps) {
   return (
-    <>
+    <View style={style.wrapper}>
       <View style={style.section}>
         <Text>{props.label}</Text>
-        <TextInput style={style.input} />
+
+        <TextInput
+          value="$ 50000"
+          keyboardType="number-pad"
+          style={style.input}
+        />
       </View>
       <Slider minimumValue={props.maxAmount} maximumValue={props.minAmount} />
       <View style={style.section}>
-        <Text>{`${decorator} ${props.minAmount}`}</Text>
-        <Text>{`${decorator} ${props.maxAmount}`}</Text>
+        <Text type="accent">{`${decorator} ${props.minAmount}`}</Text>
+        <Text type="accent">{`${decorator} ${props.maxAmount}`}</Text>
       </View>
-    </>
+    </View>
   );
 }
 
 const style = StyleSheet.create({
+  wrapper: {
+    marginVertical: 15,
+  },
   section: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginBottom: 20,
   },
   input: {
+    color: colors.text.accent,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: 25,
+    height: 35,
+    padding: 1,
     borderColor: colors.text.primary,
-    borderWidth: 3,
+    borderWidth: 1,
     minWidth: 150,
   },
 });
