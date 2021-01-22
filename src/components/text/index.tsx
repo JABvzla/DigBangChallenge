@@ -1,10 +1,10 @@
 import React from 'react';
-import {Text as RNText} from 'react-native';
+import {Text as RNText, TextProps as RNTextProps} from 'react-native';
 
-interface TextProps {
+interface TextProps extends RNTextProps {
   children: string;
 }
 
-export function Text({children}: TextProps) {
-  return <RNText>{children}</RNText>;
+export function Text(props: TextProps) {
+  return <RNText {...props} />;
 }
