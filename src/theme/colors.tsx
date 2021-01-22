@@ -6,7 +6,8 @@ export const colors = {
     lightest: '#0b548b',
   },
   text: {
-    primary: '#fff',
+    accent: '#fff',
+    primary: '#aaa',
   },
   accent: '#17aa8d',
 };
