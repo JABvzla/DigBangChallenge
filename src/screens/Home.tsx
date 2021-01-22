@@ -11,11 +11,14 @@ import {useCreditSimulator} from '../hooks/useCreditSimulator';
 import {colors} from '../theme/colors';
 
 export default function () {
-  const {amount, dues, result} = useCreditSimulator();
+  const {amount, dues, result, errors} = useCreditSimulator();
 
   return (
     <>
-      <StatusBar barStyle="dark-content" backgroundColor={colors.background.primary}/>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={colors.background.primary}
+      />
       <SafeAreaView style={style.safeArea}>
         <ScrollView contentContainerStyle={style.scrollView}>
           <View style={style.wrapper}>
@@ -36,15 +39,27 @@ export default function () {
               maxAmount={dues.max}
             />
 
-            <View style={style.result}>
-              <Text type="accentBold">CUOTA FIJA POR MES</Text>
-              <Text type="accentExtraBig">{`$ ${result}`}</Text>
-            </View>
+            {errors.length ? (
+              <>
+                {errors.map((e, k) => (
+                  <Text key={k} type="error">
+                    {e}
+                  </Text>
+                ))}
+              </>
+            ) : (
+              <>
+                <View style={style.result}>
+                  <Text type="accentBold">CUOTA FIJA POR MES</Text>
+                  <Text type="accentExtraBig">{`$ ${result}`}</Text>
+                </View>
 
-            <Button type="accent" textType="accentBig">
-              OBTENÉ CRÉDITO
-            </Button>
-            <Button textType="accentBold">OBTENÉ CRÉDITO</Button>
+                <Button type="accent" textType="accentBig">
+                  OBTENÉ CRÉDITO
+                </Button>
+                <Button textType="accentBold">OBTENÉ CRÉDITO</Button>
+              </>
+            )}
           </View>
         </ScrollView>
       </SafeAreaView>

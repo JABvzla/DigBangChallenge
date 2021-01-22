@@ -12,6 +12,7 @@ export type TextTypes =
   | 'accent'
   | 'accentBold'
   | 'accentBig'
+  | 'error'
   | 'accentExtraBig';
 interface TextProps extends RNTextProps {
   type?: TextTypes;
@@ -56,5 +57,9 @@ const style = StyleSheet.create({
     fontSize: 26,
     marginTop: 15,
     marginBottom: 30,
+  },
+  error: {
+    color: colors.text.error,
+    textAlign: 'center',
   },
 });
