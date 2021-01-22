@@ -1,6 +1,7 @@
 import RNSlider from '@react-native-community/slider';
 import React from 'react';
 import {StyleProp, ViewStyle} from 'react-native';
+import {colors} from '../../theme/colors';
 
 interface SliderProps {
   value?: number;
@@ -13,9 +14,9 @@ interface SliderProps {
 export function Slider(props: SliderProps) {
   return (
     <RNSlider
-      thumbTintColor="#fff"
-      minimumTrackTintColor="#fff"
-      maximumTrackTintColor="#fff"
+      thumbTintColor={colors.text.primary}
+      minimumTrackTintColor={colors.text.primary}
+      maximumTrackTintColor={colors.text.primary}
       {...props}
     />
   );

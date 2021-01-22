@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
+import {colors} from '../../theme/colors';
 import {Slider} from '../slider';
 import {Text} from '../text';
 
@@ -34,7 +35,7 @@ const style = StyleSheet.create({
     justifyContent: 'space-between',
   },
   input: {
-    borderColor: '#fff',
+    borderColor: colors.text.primary,
     borderWidth: 3,
     minWidth: 150,
   },

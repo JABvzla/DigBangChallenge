@@ -7,6 +7,7 @@ import {
   View,
 } from 'react-native';
 import {AmmountSlider, Text} from '../components';
+import {colors} from '../theme/colors';
 
 export default function () {
   return (
@@ -42,6 +43,6 @@ const style = StyleSheet.create({
   wrapper: {
     margin: 12,
     padding: 14,
-    backgroundColor: '#003b67',
+    backgroundColor: colors.background.darktest,
   },
 });
