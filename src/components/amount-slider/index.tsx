@@ -8,6 +8,7 @@ interface AmmountSliderProps {
   label: string;
   minAmount: number;
   maxAmount: number;
+  value: number;
   defaultAmount?: number;
   decorator?: string;
   onChange: (value: number) => void;
@@ -18,14 +19,19 @@ export function AmmountSlider({decorator = '', ...props}: AmmountSliderProps) {
     <View style={style.wrapper}>
       <View style={style.section}>
         <Text>{props.label}</Text>
-
         <TextInput
-          value="$ 50000"
+          value={props.value.toString()}
+          onChangeText={(v) => props.onChange(+v)}
           keyboardType="number-pad"
           style={style.input}
         />
       </View>
-      <Slider minimumValue={props.maxAmount} maximumValue={props.minAmount} />
+      <Slider
+        value={props.value}
+        onValueChange={props.onChange}
+        minimumValue={props.minAmount}
+        maximumValue={props.maxAmount}
+      />
       <View style={style.section}>
         <Text type="accent">{`${decorator} ${props.minAmount}`}</Text>
         <Text type="accent">{`${decorator} ${props.maxAmount}`}</Text>

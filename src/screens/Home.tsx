@@ -7,9 +7,12 @@ import {
   View,
 } from 'react-native';
 import {AmmountSlider, Text} from '../components';
+import {useCreditSimulator} from '../hooks/useCreditSimulator';
 import {colors} from '../theme/colors';
 
 export default function () {
+  const {amount, dues, result} = useCreditSimulator();
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -19,20 +22,22 @@ export default function () {
             <Text type="title">Simulá tu credito</Text>
             <AmmountSlider
               label={'MONTO TOTAL'}
-              decorator={'$'}
-              onChange={() => {}}
-              minAmount={5000}
-              maxAmount={50000}
+              decorator={'$ '}
+              onChange={amount.onChange}
+              value={amount.value}
+              minAmount={amount.min}
+              maxAmount={amount.max}
             />
             <AmmountSlider
               label={'PLAZO'}
-              onChange={() => {}}
-              minAmount={3}
-              maxAmount={24}
+              onChange={dues.onChange}
+              value={dues.value}
+              minAmount={dues.min}
+              maxAmount={dues.max}
             />
             <View style={style.result}>
               <Text type="accentBold">CUOTA FIJA POR MES</Text>
-              <Text type="accentBig">$ 50000</Text>
+              <Text type="accentBig">{`$ ${result}`}</Text>
             </View>
           </View>
         </ScrollView>
