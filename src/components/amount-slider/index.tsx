@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
 import {colors} from '../../theme/colors';
+import {debounce} from '../../utils/debounce';
 import {Slider} from '../slider';
 import {Text} from '../text';
 
@@ -28,7 +29,7 @@ export function AmmountSlider({decorator = '', ...props}: AmmountSliderProps) {
       </View>
       <Slider
         value={props.value}
-        onValueChange={props.onChange}
+        onValueChange={debounce(props.onChange, 100)}
         minimumValue={props.minAmount}
         maximumValue={props.maxAmount}
       />
